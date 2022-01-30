@@ -26,15 +26,15 @@ jobs:
       - name: Run the built image.
         run: docker run --name test-oraclelinux8 -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro docker-oraclelinux8
 
-      # - name: Verify Ansible is accessible in the built image.
-        # run: docker exec --tty test-centos7 env TERM=xterm ansible --version
+      - name: Verify Ansible is accessible in the built image.
+        run: docker exec --tty test-oraclelinux8 env TERM=xterm ansible --version
 
   # If on master branch, build and release image.
   release:
     name: Release
     runs-on: ubuntu-latest
     needs: test
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
 
     steps:
       - uses: actions/checkout@v2
