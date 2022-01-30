@@ -1,4 +1,5 @@
 FROM oraclelinux:8
+LABEL maintainer="Michael Buluma"
 
 # Check Repolist before
 RUN dnf repolist
