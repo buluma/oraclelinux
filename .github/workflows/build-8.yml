@@ -1,5 +1,5 @@
 ---
-name: Build Oracle linux 7
+name: Build Oracle linux 8
 
 on:
   pull_request:
