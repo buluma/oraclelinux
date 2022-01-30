@@ -13,7 +13,8 @@ WARNING:
 ********************************************************************************
 
 -->
-
+[![Build Oracle linux 7](https://github.com/buluma/oraclelinux/actions/workflows/build-7.yml/badge.svg)](https://github.com/buluma/oraclelinux/actions/workflows/build-7.yml)
+[![Build Oracle linux 8](https://github.com/buluma/oraclelinux/actions/workflows/build-8.yml/badge.svg)](https://github.com/buluma/oraclelinux/actions/workflows/build-8.yml)
 # Quick reference
 
 -	**Maintained by**:  
