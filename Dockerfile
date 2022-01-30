@@ -20,6 +20,6 @@ RUN dnf install oracle-epel-release-el8 -y
 # Check Repolist after
 RUN dnf repolist
 
-RUN dnf install ansible
+RUN dnf install ansible -y
 
 CMD ["/bin/bash"]
