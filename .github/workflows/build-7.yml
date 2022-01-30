@@ -1,0 +1,57 @@
+---
+name: Build Oracle linux 7
+
+on:
+  pull_request:
+  push:
+    paths:
+      - '7/**'
+      - '.github/workflows/build-7.yml'
+  schedule:
+    - cron: '0 4,* * * *'
+  workflow_dispatch:
+
+jobs:
+  # Test the image builds and works correctly.
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Test building image.
+        run: cd 7 && docker build -t docker-oraclelinux7 .
+
+      - name: Run the built image.
+        run: docker run --name test-oraclelinux7 -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro docker-oraclelinux7
+
+#       - name: Verify Ansible is accessible in the built image.
+#         run: docker exec --tty docker-oraclelinux8 env TERM=xterm ansible --version
+
+  # If on master branch, build and release image.
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    needs: test
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push image.
+        uses: docker/build-push-action@v2
+        with:
+          context:7/
+          file: 7/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: ${{ github.repository }}:7
