@@ -1,6 +1,7 @@
 FROM oraclelinux:7
 LABEL maintainer="Michael Buluma"
 
+RUN yum install epel-release DNF -y
 # Check Repolist before
 RUN dnf repolist
 RUN yum update -y
