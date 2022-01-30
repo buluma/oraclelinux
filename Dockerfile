@@ -1,6 +1,6 @@
 # Copyright (C) Micro Focus 2018. All rights reserved. 
 
-FROM rhel7/rhel:latest
+FROM roboxes/rhel7:latest
   
 # PRODUCT_VERSION is product version associated with this Dockerfile
 # SETUP_EXE is the build-arg name for the name of installer
