@@ -13,7 +13,7 @@ RUN yum update -y
 # RUN dnf list –installed | grep oraclelinux-release
 RUN dnf info oracle-epel-release-el8.x86_64
 
-RUN dnf install oracle-epel-release-el8
+RUN dnf install oracle-epel-release-el8 -y
 
 RUN dnf repolist
 
