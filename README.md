@@ -1,1 +1,1 @@
-# enterpriselinux
+# oraclelinux
