@@ -1,0 +1,6 @@
+[ol8_latest]
+name=Oracle Linux $releasever Latest ($basearch)
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL8/latest/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=1
