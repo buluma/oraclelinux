@@ -10,6 +10,7 @@ RUN dnf makecache
 # RUN dnf repolist all
 RUN yum update -y
 
-RUN dnf list –installed | grep oraclelinux-release
+# RUN dnf list –installed | grep oraclelinux-release
+RUN dnf info oracle-epel-release-el8.x86_64
 
 CMD ["/bin/bash"]
