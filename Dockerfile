@@ -28,7 +28,7 @@ ENV MFLICBASE=/var/microfocuslicensing
 # install ed, pax and glibc-devel.x86_64 as these are a pre-req for the installer
 # note: disablerepo is used to avoid "HTTPS Error 403 - Forbidden" error
 # RUN yum -y --disablerepo=rhel-7-server-rt-beta-rpms install ed pax glibc-devel.x86_64 file
-RUN yum -y --disablerepo=rhel-7-server-rpms install ed pax glibc-devel.x86_64 file
+RUN yum -y install ed pax glibc-devel.x86_64 file
   
 # copy the installer from the local machine to the container
 COPY ${SETUP_EXE} /tmp/
