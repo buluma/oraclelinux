@@ -65,6 +65,6 @@ jobs:
         with:
           context: 8/
           file: 8/Dockerfile
-          platforms: linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/arm64,linux/ppc64le,linux/arm/v7,linux/arm/v6
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ github.repository }}:8
