@@ -51,11 +51,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # - name: Build and push image.
-      #   uses: docker/build-push-action@v2
-      #   with:
-      #     context: 8/
-      #     file: 8/Dockerfile
-      #     platforms: linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/amd64/v4,linux/arm64,linux/riscv64,linux/ppc64le,linux/arm/v7
-      #     push: true
-      #     tags: ${{ github.repository }}:8
+      - name: Build and push image.
+        uses: docker/build-push-action@v2
+        with:
+          context: 8/
+          file: 8/Dockerfile
+          platforms: linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/arm64,linux/riscv64,linux/ppc64le,linux/s390x,linux/386,linux/mips64le,linux/mips64,linux/arm/v7,linux/arm/v6
+          push: true
+          tags: ${{ github.repository }}:8
