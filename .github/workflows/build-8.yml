@@ -39,7 +39,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@v1
-      - uses: docker/setup-buildx-action@v1
+      - uses: buluma/setup-buildx-action@0.1.0
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
@@ -52,6 +52,6 @@ jobs:
         with:
           context: 8/
           file: 8/Dockerfile
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/amd64/v4,linux/arm64,linux/riscv64,linux/ppc64le,linux/arm/v7
           push: true
           tags: ${{ github.repository }}:8
