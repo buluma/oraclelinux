@@ -43,8 +43,7 @@ jobs:
         id: buildx
       - uses: buluma/setup-buildx-action@0.1.0
       - name: Available platforms
-        run: echo ${{ steps.buildx.outputs.platforms }}
-        if: github.ref == 'refs/heads/testing'
+        run: echo ${{ steps.buildx.outputs.platforms }}'
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
