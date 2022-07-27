@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Test building image.
-        run: cd 9 && docker build -t docker-oraclelinu9 .
+        run: cd 9 && docker build -t docker-oraclelinux9 .
 
       - name: Run the built image.
         run: docker run --name test-oraclelinux9 -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro docker-oraclelinux9
