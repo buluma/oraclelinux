@@ -1,14 +1,14 @@
 ---
-name: Build Oracle linux 7
+name: Build Oracle linux 9
 
 on:
   pull_request:
   push:
     paths:
-      - '7/**'
-      - '.github/workflows/build-7.yml'
+      - '8/**'
+      - '.github/workflows/build-8.yml'
   schedule:
-    - cron: '10 1,7 * * *'
+    - cron: '10 1,9 * * *'
   workflow_dispatch:
 
 jobs:
@@ -21,10 +21,10 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Test building image.
-        run: cd 7 && docker build -t docker-oraclelinux7 .
+        run: cd 9 && docker build -t docker-oraclelinu9 .
 
       - name: Run the built image.
-        run: docker run --name test-oraclelinux7 -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro docker-oraclelinux7
+        run: docker run --name test-oraclelinux9 -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro docker-oraclelinux9
 
 #       - name: Verify Ansible is accessible in the built image.
 #         run: docker exec --tty docker-oraclelinux8 env TERM=xterm ansible --version
@@ -63,9 +63,8 @@ jobs:
       - name: Build and push image.
         uses: docker/build-push-action@v2
         with:
-          context: 7/
-          file: 7/Dockerfile
-          # platforms: linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/arm64,linux/riscv64,linux/ppc64le,linux/s390x,linux/386,linux/mips64le,linux/mips64,linux/arm/v7,linux/arm/v6
+          context: 9/
+          file: 9/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ github.repository }}:7
+          tags: ${{ github.repository }}:9

@@ -1,10 +1,10 @@
-FROM oraclelinux:7
+FROM oraclelinux:9
 LABEL maintainer="Michael Buluma"
 LABEL build_date="2022-07-27"
 
 ENV container=docker
 
-RUN yum -y reinstall systemd
+RUN dnf -y reinstall systemd
 RUN cd /etc/systemd/system/sysinit.target.wants/ ; \
     for i in * ; do [ $i = systemd-tmpfiles-setup.service ] || rm -f $i ; done ; \
     rm -f /lib/systemd/system/multi-user.target.wants/* ; \
