@@ -1,6 +1,6 @@
 FROM oraclelinux:9
 LABEL maintainer="Michael Buluma"
-LABEL build_date="2022-11-17"
+LABEL build_date="2024-01-22"
 
 ENV container=docker
 
